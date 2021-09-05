@@ -8,8 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.CalculatorPage;
 import pages.SearchPage;
-
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 
 public class googleTest {
 
@@ -22,6 +24,7 @@ public class googleTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
+        //options.addArguments("lang=en-GB");
         driver = new ChromeDriver(options);
         calculatorPage = new CalculatorPage(driver);
         searchPage = new SearchPage(driver);
@@ -38,9 +41,24 @@ public class googleTest {
     public void test(){
 
         calculatorPage.input();
-        assertEquals("1", calculatorPage.getCacl1());
+        assertAll(
+                () -> assertEquals("(1 + 2) × 3 - 40 ÷ 5 =", calculatorPage.getCacl2()),
+                () -> assertEquals("1", calculatorPage.getCacl1())
+                /*() -> assertEquals("+", calculatorPage.getCacl2()),
+                () -> assertEquals("2", calculatorPage.getCacl3()),
+                () -> assertEquals("(", calculatorPage.getCacl4()),
+                () -> assertEquals(")", calculatorPage.getCacl5()),
+                () -> assertEquals("*", calculatorPage.getCacl6()),
+                () -> assertEquals("3", calculatorPage.getCacl7()),
+                () -> assertEquals("-", calculatorPage.getCacl8()),
+                () -> assertEquals("4", calculatorPage.getCacl9()),
+                () -> assertEquals("0", calculatorPage.getCacl10()),
+                () -> assertEquals("÷", calculatorPage.getCacl11()),
+                () -> assertEquals("5", calculatorPage.getCacl12()),
+                () -> assertEquals("=", calculatorPage.getCacl13())
 
-
+                 */
+        );
     }
 
 
