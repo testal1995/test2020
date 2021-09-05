@@ -37,8 +37,8 @@ public class googleTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки")
-    public void test(){
+    @DisplayName("Проверка тест-кейса 1")
+    public void test1(){
 
         calculatorPage.input();
         assertAll(
