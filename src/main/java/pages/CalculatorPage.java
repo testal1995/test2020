@@ -55,6 +55,9 @@ public class CalculatorPage {
     @FindBy(css = "div[jsname*='zLiRgc']")
     public WebElement Infinity;
 
+    @FindBy(css = "div[jsname*='aN1RFf']")
+    public WebElement Error;
+
     public String formula1 = "(1 + 2) ? 3 - 40 ? 5 =";
     public String formula2 = "«6 ? 0 =";
 
@@ -88,12 +91,20 @@ public class CalculatorPage {
         Thread.sleep(3000L);
     }
 
+    public void input3() throws InterruptedException {
+
+        Error.click();
+        calc13.click();
+        Thread.sleep(2000L);
+    }
 
     public String getCacl1(){
         return calc1.getText();
     }
-    public String getCacl2(){
+    public String getCacl2() {
         return formula1;
+    }
+
         /*return calc4.getText();
         return calc1.getText();
         return calc2.getText();
@@ -109,8 +120,7 @@ public class CalculatorPage {
         return calc13.getText();
 
     }
-    public String getCacl3(){
-        return calc3.getText();
+
     }
     public String getCacl4(){
         return calc4.getText();
@@ -142,12 +152,15 @@ public class CalculatorPage {
     public String getCacl13(){
         return calc13.getText();
         */
-    }
+
 
         public String getCalc3(){
             return formula2;
         }
         public String getCalc4(){
             return Infinity.getText();
+    }
+    public String getCacl5() {
+        return Error.getText();
     }
 }

@@ -67,8 +67,20 @@ public class googleTest {
 
         calculatorPage.input2();
         assertAll(
-                //() -> assertEquals("6 ÷ 0 =", calculatorPage.getCalc3()),
+                () -> assertEquals("6 ÷ 0 =", calculatorPage.getCalc3()),
                 () -> assertEquals("Infinity", calculatorPage.getCalc4())
+
+        );
+    }
+
+    @Test
+    @DisplayName("Проверка тест-кейса 3")
+    public void test3() throws InterruptedException {
+
+        calculatorPage.input3();
+        assertAll(
+                () -> assertEquals("sin() =", calculatorPage.getCalc3()),
+                () -> assertEquals("Error", calculatorPage.getCalc4())
 
         );
     }
