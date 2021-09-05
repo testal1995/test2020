@@ -61,6 +61,17 @@ public class googleTest {
         );
     }
 
+    @Test
+    @DisplayName("Проверка тест-кейса 2")
+    public void test2() throws InterruptedException {
+
+        calculatorPage.input2();
+        assertAll(
+                //() -> assertEquals("6 ÷ 0 =", calculatorPage.getCalc3()),
+                () -> assertEquals("Infinity", calculatorPage.getCalc4())
+
+        );
+    }
 
     @AfterAll
     public static void teardown(){

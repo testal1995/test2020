@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CalculatorPage {
 
@@ -48,10 +49,17 @@ public class CalculatorPage {
     @FindBy(css = "div[jsname*='Pt8tGc']")
     public WebElement calc13;
 
-    public String formula1 = "(1 + 2) ? 3 - 40 ? 5 =";
+    @FindBy(css = "div[jsname*='abcgof']")
+    public WebElement calc14;
 
+    @FindBy(css = "div[jsname*='zLiRgc']")
+    public WebElement Infinity;
+
+    public String formula1 = "(1 + 2) ? 3 - 40 ? 5 =";
+    public String formula2 = "«6 ? 0 =";
 
     public CalculatorPage(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);
     }
 
@@ -70,6 +78,17 @@ public class CalculatorPage {
         calc12.click();
         calc13.click();
     }
+
+    public void input2() throws InterruptedException {
+
+        calc14.click();
+        calc11.click();
+        calc10.click();
+        calc13.click();
+        Thread.sleep(3000L);
+    }
+
+
     public String getCacl1(){
         return calc1.getText();
     }
@@ -122,6 +141,13 @@ public class CalculatorPage {
     }
     public String getCacl13(){
         return calc13.getText();
+        */
     }
-*/
+
+        public String getCalc3(){
+            return formula2;
+        }
+        public String getCalc4(){
+            return Infinity.getText();
+    }
 }
